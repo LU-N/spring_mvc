@@ -1,18 +1,20 @@
 package com.controller;
 
 import com.domain.User;
+import com.domain.Vo;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -22,6 +24,41 @@ import java.util.Arrays;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping(value = "/quick18")
+    /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
+    @ResponseBody
+    public void save18(Date date) throws IOException {
+        System.out.println(date);
+    }
+
+    @RequestMapping(value = "/quick17/{username}")
+    /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
+    @ResponseBody
+    public void save17(@PathVariable(value = "username") String username) throws IOException {
+        System.out.println(username);
+    }
+
+    @RequestMapping(value = "/quick16")
+    /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
+    @ResponseBody
+    public void save16(@RequestParam(value = "name", required = false, defaultValue = "zhangsan") String username) throws IOException {
+        System.out.println(username);
+    }
+
+    @RequestMapping(value = "/quick15")
+    /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
+    @ResponseBody
+    public void save15(@RequestBody List<User> userList) throws IOException {
+        System.out.println(userList);
+    }
+
+    @RequestMapping(value = "/quick14")
+    /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
+    @ResponseBody
+    public void save14(Vo vo) throws IOException {
+        System.out.println(vo);
+    }
+
     @RequestMapping(value = "/quick13")
     /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
     @ResponseBody
@@ -39,9 +76,10 @@ public class UserController {
     @RequestMapping(value = "/quick11")
     /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
     @ResponseBody
-    public void save11(String username, int age) throws IOException {
+    public void save11(String username, int age, @DateTimeFormat(pattern = "yyyy-MM-dd") Date birthday) throws IOException {
         System.out.println(username);
         System.out.println(age);
+        System.out.println(birthday);
     }
 
     @RequestMapping(value = "/quick10")

@@ -36,6 +36,18 @@
         </property>
     </bean>-->
     <!--mvc注解驱动-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversionService"/>
+    <!--开发资源的访问-->
+    <!--<mvc:resources mapping="/js/**" location="/js/"/>-->
 
+    <mvc:default-servlet-handler/>
+
+    <!--声明转换器-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="com.converter.DateConverter"></bean>
+            </list>
+        </property>
+    </bean>
 </beans>

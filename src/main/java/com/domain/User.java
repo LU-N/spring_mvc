@@ -1,5 +1,7 @@
 package com.domain;
 
+import java.util.Date;
+
 /**
  * @author JinLu
  * @date 2019/10/23
@@ -7,6 +9,10 @@ package com.domain;
 public class User {
     private String username;
     private int age;
+
+
+
+
 
     public String getUsername() {
         return username;
