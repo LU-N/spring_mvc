@@ -12,6 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 
 /**
@@ -21,6 +23,28 @@ import java.io.IOException;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping(value = "/quick13")
+    /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
+    @ResponseBody
+    public void save13(String[] strs) throws IOException {
+        System.out.println(Arrays.asList(strs));
+    }
+
+    @RequestMapping(value = "/quick12")
+    /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
+    @ResponseBody
+    public void save12(User user) throws IOException {
+        System.out.println(user);
+    }
+
+    @RequestMapping(value = "/quick11")
+    /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
+    @ResponseBody
+    public void save11(String username, int age) throws IOException {
+        System.out.println(username);
+        System.out.println(age);
+    }
+
     @RequestMapping(value = "/quick10")
     /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
     @ResponseBody
@@ -56,7 +80,7 @@ public class UserController {
     /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
     @ResponseBody
     public String save7() {
-        return "hello";
+        return "hello 小明";
     }
 
     @RequestMapping(value = "/quick6")
