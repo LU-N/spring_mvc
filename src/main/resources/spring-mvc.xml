@@ -20,5 +20,13 @@
     </mvc:view-resolvers>
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler/>
+    <!--配置处理器映射器-->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
 
 </beans>
