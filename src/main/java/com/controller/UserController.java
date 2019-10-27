@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Date;
@@ -24,6 +25,29 @@ import java.util.List;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+    @RequestMapping(value = "/quick21")
+    /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
+    @ResponseBody
+    public void save21(@CookieValue(value = "JSESSIONID") String jsessionId) throws IOException {
+        System.out.println(jsessionId);
+    }
+
+    @RequestMapping(value = "/quick20")
+    /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
+    @ResponseBody
+    public void save20(@RequestHeader(value = "User-Agent",required = false) String user_agent) throws IOException {
+        System.out.println(user_agent);
+    }
+
+    @RequestMapping(value = "/quick19")
+    /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
+    @ResponseBody
+    public void save19(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
+        System.out.println(request);
+        System.out.println(response);
+        System.out.println(session);
+    }
+
     @RequestMapping(value = "/quick18")
     /**告知SpringMVC框架，不进行视图跳转，直接进行数据相应*/
     @ResponseBody
