@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: JinLu
@@ -8,7 +9,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <form action="${pageContext.request.contextPath}/user/quick22" method="post" enctype="multipart/form-data">
+        名称<input type="text" name="username"><br/>
+        文件<input type="file" name="upload"><br/>
+        <input type="submit" name="提交">
+    </form>
 </head>
 <body>
 
